@@ -103,9 +103,9 @@ def executar_monte_carlo(n_simulacoes=50, passos=150):
     
     print(f"Iniciando Monte Carlo ({n_simulacoes} simulações)...")
     
-    # Armazenadores de resultados
-    todos_historicos = [] # Para gráfico temporal
-    dados_espaciais_agrupados = {} # Para gráfico de distância
+  
+    todos_historicos = [] 
+    dados_espaciais_agrupados = {} 
     
     for n in range(n_simulacoes):
         if n % 10 == 0: print(f"  Simulação {n}/{n_simulacoes}...")
@@ -116,7 +116,7 @@ def executar_monte_carlo(n_simulacoes=50, passos=150):
         flores, hist = modelo.obter_dados_finais()
         todos_historicos.append(hist)
         
-        # Agrupar dados espaciais por bin de distância
+        
         for dist, sucesso in flores:
             d_bin = int(dist // 2) * 2 
             if d_bin not in dados_espaciais_agrupados:
@@ -178,4 +178,5 @@ def executar_monte_carlo(n_simulacoes=50, passos=150):
     plt.show()
 
 if __name__ == "__main__":
+
     executar_monte_carlo(n_simulacoes=50, passos=120)
