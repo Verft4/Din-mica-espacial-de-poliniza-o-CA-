@@ -180,3 +180,4 @@ def executar_monte_carlo(n_simulacoes=50, passos=150):
 if __name__ == "__main__":
 
     executar_monte_carlo(n_simulacoes=50, passos=120)
+
