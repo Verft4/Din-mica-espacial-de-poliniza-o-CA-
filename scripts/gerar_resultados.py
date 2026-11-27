@@ -1,4 +1,15 @@
+#!/usr/bin/env python3
+"""Reproduz TODOS os resultados do artigo: figuras, tabelas e números.
 
+Uso:  python scripts/gerar_resultados.py            (completo, ~1-2 min)
+      python scripts/gerar_resultados.py --rapido   (poucas réplicas, para teste)
+
+Saídas:
+  figuras/*.png                figuras do artigo
+  resultados/resultados.json   todos os números
+  artigo/numeros.tex           macros LaTeX com os números do cenário-base
+  artigo/tab_*.tex             tabelas do artigo
+"""
 
 from __future__ import annotations
 

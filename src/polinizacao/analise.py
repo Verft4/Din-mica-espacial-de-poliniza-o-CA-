@@ -121,3 +121,24 @@ def sd_binomial_esperado(eficiencia, n_receptoras):
         p = np.nanmean(e, axis=0)
         var = p * (1.0 - p) / n
         return 100.0 * np.sqrt(np.nanmean(var, axis=0))
+
+
+def meia_distancia(distancias, valores) -> float:
+    """Menor distância, a partir do pico, em que o perfil cai à metade do seu valor máximo.
+
+    Usa interpolação linear entre as duas faixas que cruzam o nível (NaN ignorados).
+    Retorna NaN se o perfil nunca cai à metade.
+    """
+    d = np.asarray(distancias, dtype=float)
+    v = np.asarray(valores, dtype=float)
+    ok = ~np.isnan(v) & ~np.isnan(d)
+    d, v = d[ok], v[ok]
+    if v.size < 2 or v.max() <= 0:
+        return float("nan")
+    pico = int(np.argmax(v))
+    alvo = v[pico] / 2.0
+    for k in range(pico + 1, v.size):
+        if v[k] <= alvo:
+            v0, v1, d0, d1 = v[k - 1], v[k], d[k - 1], d[k]
+            return float(d0 + (v0 - alvo) / (v0 - v1) * (d1 - d0)) if v0 != v1 else float(d1)
+    return float("nan")

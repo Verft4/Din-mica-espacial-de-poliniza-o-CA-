@@ -1,6 +1,9 @@
 """Dinâmica espacial de polinização e fluxo de pólen com autômatos celulares."""
 
-from .analise import ajustar_decaimento, ajustar_exponencial, ic95, media_dp, raio_eficaz, sd_binomial_esperado
+from .abm_continuo import ModeloABMContinuo
+from .analise import (
+    ajustar_decaimento, ajustar_exponencial, ic95, media_dp, meia_distancia, raio_eficaz, sd_binomial_esperado,
+)
 from .modelo import (
     ABELHA,
     COLMEIA,
@@ -15,7 +18,7 @@ from .modelo import (
 from .monte_carlo import ResultadoMC, executar_monte_carlo, varrer_parametro
 
 __all__ = [
-    "ModeloPolinizacao", "Parametros", "ResultadoMC",
+    "ModeloPolinizacao", "ModeloABMContinuo", "Parametros", "ResultadoMC", "meia_distancia",
     "executar_monte_carlo", "varrer_parametro",
     "ajustar_decaimento", "ajustar_exponencial", "ic95", "media_dp", "raio_eficaz", "sd_binomial_esperado",
     "VAZIO", "NEUTRO", "FLOR_DOADORA", "FLOR_RECEPTORA", "COLMEIA", "ABELHA", "POLINIZADA",

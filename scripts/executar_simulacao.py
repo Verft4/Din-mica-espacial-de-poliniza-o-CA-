@@ -1,4 +1,11 @@
+#!/usr/bin/env python3
+"""Roda UMA simulação e salva o mapa final.
 
+Exemplos:
+    python scripts/executar_simulacao.py --passos 120 --seed 1
+    python scripts/executar_simulacao.py --alpha 4 --densidade 0.25 --saida figuras/minha_sim.png
+    python scripts/executar_simulacao.py --mostrar          # abre uma janela em vez de só salvar
+"""
 import argparse
 import sys
 from pathlib import Path

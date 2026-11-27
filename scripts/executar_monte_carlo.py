@@ -1,4 +1,9 @@
+#!/usr/bin/env python3
+"""Roda um experimento de Monte Carlo e salva as figuras (série temporal e eficiência x distância).
 
+Exemplo:
+    python scripts/executar_monte_carlo.py --n 50 --passos 120 --seed 12345
+"""
 import argparse
 import sys
 from pathlib import Path
